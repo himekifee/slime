@@ -1,0 +1,9 @@
+MODNAME		                        ?= @MODULE_NAME@
+
+ccflags-y	                        += -I$(src)/include -Werror -fno-stack-protector @CMAKE_C_FLAGS@
+ldflags-y	                        += -T$(src)/slime.lds
+EXTRA_CFLAGS                        += @KBUILD_INCLUDE_STRING@
+
+obj-m                               += @MODULE_NAME@.o
+@MODULE_NAME@-y                     += loader.o ../../thirdparty/khook/khook/engine.o $(patsubst %.c,%.o, $(filter %.c,@SUBMODULES_STRING@))
+@MODULE_NAME@-y                     += $(patsubst %.c,%.o, $(filter %.c,@LIST_SRC_STRING@))

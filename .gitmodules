@@ -1,0 +1,6 @@
+[submodule "thirdparty/list"]
+	path = thirdparty/list
+	url = https://github.com/himekifee/list.git
+[submodule "thirdparty/khook"]
+	path = thirdparty/khook
+	url = https://github.com/milabs/khook.git
